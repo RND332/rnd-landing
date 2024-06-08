@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+---
+
+<Layout page="socials">
+    <div class="pt-4 px-2 w-full grid grid-cols-[1fr,2fr]">
+        <Image
+            class="rounded-full"
+            src="/twittercircle.png"
+            alt="Avatar"
+            width="200"
+            height="200"
+        />
+
+        <div class="ml-4 border border-[#30363d] rounded p-4">
+            <h1 class="text-2xl font-bold">Socials</h1>
+
+            <div class="flex gap-2">
+                <div
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2"
+                >
+                    <a
+                        href="https://x.com/RND1707"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Twitter
+                    </a>
+                </div>
+                <div
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2"
+                >
+                    <a
+                        href="https://github.com/RND332"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Github
+                    </a>
+                </div>
+                <div
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2"
+                >
+                    <a
+                        href="https://t.me/rnd332"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Telegram
+                    </a>
+                </div>
+                <div
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2"
+                >
+                    <a
+                        href="https://www.linkedin.com/in/talgat-minigaliev-2b7956231/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</Layout>
+
+<style>
+    .plane:hover {
+        transition: background-color 0.5s ease;
+        background-color: #21252a;
+    }
+</style>

@@ -1,9 +1,7 @@
 ---
-interface Props {
-	title: string;
-}
+import { ViewTransitions } from 'astro:transitions';
 
-const { title } = Astro.props;
+const currentPage = Astro.props.page;
 ---
 
 <!doctype html>
@@ -13,15 +11,63 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="preconnect">
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+		<title>RND</title>
+		<ViewTransitions />
 	</head>
-	<body>
-		<slot />
+	<body class="w-[63.2rem]">
+		<main
+			class="flex flex-col items-center min-w-full pt-10 px-[2.4rem]"
+		>
+			<div class="w-full text-white">
+				<div class="px-4 py-4 text-7xl">🎲RND332</div>
+			</div>
+
+			<div class="w-full">
+				<ul
+					class="pt-[6px] pb-[7.5px] border-[#30363d] border-t border-b box-border grid grid-cols-3"
+				>
+					<li
+						class={`text-[1.51rem] border-[#30363d] border-r px-[1rem]` + (currentPage == undefined ? ' text-white/50' : '')}
+					>
+						<a href="/" class="text-2xl">Who</a>
+					</li>
+					<li
+						class={`text-[1.51rem] px-[1rem] border-r border-[#30363d]` + (currentPage == 'arcanum' ? ' text-white/50' : '')}
+					>
+						<a href="/arcanum" class="text-2xl">Arcanum</a>
+					</li>
+					<li
+						class={`text-[1.51rem] px-[1rem]` + (currentPage == 'source' ? ' text-white/50' : '')}
+					>
+						<a href="/source" class="text-2xl">Source</a>
+					</li>
+					<li
+						class={`text-[1.51rem] px-[1rem] border-r border-[#30363d]` + (currentPage == 'socials' ? ' text-white/50' : '')}
+					>
+						<a href="/socials" class="text-2xl">Socials</a>
+					</li>
+					<li
+						class={`text-[1.51rem] border-r border-[#30363d] px-[1rem]` + (currentPage == 'assets' ? ' text-white/50' : '')}
+					>
+						<a href="/assets" class="text-2xl">Assets</a>
+					</li>
+				</ul>
+			</div>
+
+			<slot />
+		</main>
 	</body>
 </html>
+
 <style is:global>
 	:root {
+		padding: 0;
+		margin: 0;
+		font-size: 10px;
 		--accent: 136, 58, 234;
 		--accent-light: 224, 204, 250;
 		--accent-dark: 49, 10, 101;
@@ -32,10 +78,25 @@ const { title } = Astro.props;
 			white 60%
 		);
 	}
+	body {
+		padding: 0;
+		margin: 0;
+		line-height: 1.6;
+		color: #fff;
+	}
 	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
+		font-family: "Inconsolata", monospace;
+		font-optical-sizing: auto;
+		font-weight: 400;
+		font-style: normal;
+		font-variation-settings: "wdth" 100;
+
+		background: #0d0f14;
+		background-repeat: repeat;
+
+		display: flex;
+		justify-content: center;
+		height: 100vh;
 	}
 	code {
 		font-family:
