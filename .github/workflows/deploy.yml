@@ -1,4 +1,4 @@
-- name: executing remote ssh commands using password
+name: executing remote ssh commands using password
 
 on: 
     push:
@@ -8,11 +8,11 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-        - name: executing remote ssh commands using password
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-            host: "37.128.204.193"
-            username: "root"
-            password: ${{ secrets.SRV_PWD }}
-            script: whoami
+            - name: executing remote ssh commands using password
+              uses: appleboy/ssh-action@v1.0.3
+              with:
+                host: "37.128.204.193"
+                username: "root"
+                password: ${{ secrets.SRV_PWD }}
+                script: whoami
               
