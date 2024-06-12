@@ -1,112 +1,123 @@
 ---
-import { ViewTransitions } from 'astro:transitions';
+import { ViewTransitions } from "astro:transitions";
+import type { Page } from "../types/pages";
 
 const currentPage = Astro.props.page;
+const baseStyles = "text-xl px-4";
+const pages: Array<Page> = [
+	{ title: "Who", url: "/", id: "who" },
+	{ title: "Arcanum", url: "/arcanum", id: "arcanum" },
+	{ title: "Socials", url: "/socials", id: "socials" },
+	{ title: "Assets", url: "/assets", id: "assets" },
+	{ title: "Source", url: "/source", id: "source" },
+];
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="sd:text-xs md:text-base lg:text-xl xl:text-3xl">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="preconnect">
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap"
+			rel="preconnect"
+		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>RND</title>
 		<ViewTransitions />
 	</head>
-	<body class="w-[63.2rem]">
-		<main
-			class="flex flex-col items-center min-w-full pt-10 px-[2.4rem]"
-		>
+	<body class="w-96">
+		<main class="flex flex-col items-center min-w-full p-10">
 			<div class="w-full text-white">
-				<div class="px-4 py-4 text-7xl">🎲RND332</div>
+				<div class="px-4 py-4 text-5xl">🎲RND332</div>
 			</div>
 
 			<div class="w-full">
 				<ul
-					class="pt-[6px] pb-[7.5px] border-[#30363d] border-t border-b box-border grid grid-cols-3"
+					class="py-1 border-[#30363d] border-y box-border grid grid-cols-3 grid-rows-2"
 				>
-					<li
-						class={`text-[1.51rem] border-[#30363d] border-r px-[1rem]` + (currentPage == undefined ? ' text-white/50' : '')}
-					>
-						<a href="/" class="text-2xl">Who</a>
-					</li>
-					<li
-						class={`text-[1.51rem] px-[1rem] border-r border-[#30363d]` + (currentPage == 'arcanum' ? ' text-white/50' : '')}
-					>
-						<a href="/arcanum" class="text-2xl">Arcanum</a>
-					</li>
-					<li
-						class={`text-[1.51rem] px-[1rem]` + (currentPage == 'source' ? ' text-white/50' : '')}
-					>
-						<a href="/source" class="text-2xl">Source</a>
-					</li>
-					<li
-						class={`text-[1.51rem] px-[1rem] border-r border-[#30363d]` + (currentPage == 'socials' ? ' text-white/50' : '')}
-					>
-						<a href="/socials" class="text-2xl">Socials</a>
-					</li>
-					<li
-						class={`text-[1.51rem] border-r border-[#30363d] px-[1rem]` + (currentPage == 'assets' ? ' text-white/50' : '')}
-					>
-						<a href="/assets" class="text-2xl">Assets</a>
-					</li>
+					{
+						pages.map((page, index) => {
+							// case for index page
+							const currentPageId = currentPage == undefined ? "who" : currentPage;
+							const isCurrentPage = currentPageId === page.id;
+
+							let styles = "px-2 ";
+							if (index % 3 === 0) {
+								styles += "border-r border-[#30363d] ";
+							} else if (index % 3 === 1) {
+								styles += "border-r border-[#30363d] ";
+							}
+
+							if (isCurrentPage) {
+								styles += "text-white/50";
+							}
+
+							return (
+								<li class={styles}>
+									<a href={page.url}>
+										{page.title}
+									</a>
+								</li>
+							);
+						})
+					}
 				</ul>
 			</div>
 
 			<slot />
 		</main>
+		<style is:global>
+			:root {
+				padding: 0;
+				margin: 0;
+				--accent: 136, 58, 234;
+				--accent-light: 224, 204, 250;
+				--accent-dark: 49, 10, 101;
+				--accent-gradient: linear-gradient(
+					45deg,
+					rgb(var(--accent)),
+					rgb(var(--accent-light)) 30%,
+					white 60%
+				);
+			}
+			body {
+				padding: 0;
+				margin: 0;
+				line-height: 1.6;
+				color: #fff;
+			}
+			html {
+				font-family: "Inconsolata", monospace;
+				font-optical-sizing: auto;
+				font-weight: 400;
+				font-style: normal;
+				font-variation-settings: "wdth" 100;
+
+				background: #0d0f14;
+				background-repeat: repeat;
+
+				display: flex;
+				justify-content: center;
+				height: 100vh;
+
+				scrollbar-width: none;
+			}
+			code {
+				font-family:
+					Menlo,
+					Monaco,
+					Lucida Console,
+					Liberation Mono,
+					DejaVu Sans Mono,
+					Bitstream Vera Sans Mono,
+					Courier New,
+					monospace;
+			}
+		</style>
 	</body>
 </html>
-
-<style is:global>
-	:root {
-		padding: 0;
-		margin: 0;
-		font-size: 10px;
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	body {
-		padding: 0;
-		margin: 0;
-		line-height: 1.6;
-		color: #fff;
-	}
-	html {
-		font-family: "Inconsolata", monospace;
-		font-optical-sizing: auto;
-		font-weight: 400;
-		font-style: normal;
-		font-variation-settings: "wdth" 100;
-
-		background: #0d0f14;
-		background-repeat: repeat;
-
-		display: flex;
-		justify-content: center;
-		height: 100vh;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>

@@ -1,24 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
+import Twittercircle from "../../public/twittercircle.png";
 ---
 
 <Layout page="socials">
-    <div class="pt-4 px-2 w-full grid grid-cols-[1fr,2fr]">
+    <div class="p-2 w-full grid grid-cols-1 gap-2">
         <Image
-            class="rounded-full"
-            src="/twittercircle.png"
+            class="rounded-full w-full"
+            src={Twittercircle}
             alt="Avatar"
-            width="200"
-            height="200"
         />
 
-        <div class="ml-4 border border-[#30363d] rounded p-4">
-            <h1 class="text-2xl font-bold">Socials</h1>
+        <div class="border border-[#30363d] rounded p-2">
+            <h1 class="font-bold">Socials</h1>
 
-            <div class="flex gap-2">
+            <div class="flex flex-wrap gap-1">
                 <div
-                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2"
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2 text-xs"
                 >
                     <a
                         href="https://x.com/RND1707"
@@ -29,7 +28,7 @@ import { Image } from "astro:assets";
                     </a>
                 </div>
                 <div
-                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2"
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2 text-xs"
                 >
                     <a
                         href="https://github.com/RND332"
@@ -40,7 +39,7 @@ import { Image } from "astro:assets";
                     </a>
                 </div>
                 <div
-                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2"
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2 text-xs"
                 >
                     <a
                         href="https://t.me/rnd332"
@@ -51,7 +50,7 @@ import { Image } from "astro:assets";
                     </a>
                 </div>
                 <div
-                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2"
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2 text-xs"
                 >
                     <a
                         href="https://www.linkedin.com/in/talgat-minigaliev-2b7956231/"

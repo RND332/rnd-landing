@@ -5,9 +5,9 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <div class="grid pt-4 px-2 grid-cols-[1fr,2fr]">
-    <Image src={Avatar} alt="avatar" class="rounded-full w-full" />
-    <div class="ml-4 border border-[#30363d] rounded p-4">
+  <div class="grid pt-4 px-2 grid-cols-1 gap-2">
+    <Image src={Avatar} alt="avatar" class="rounded-full w-full px-4" />
+    <div class="border border-[#30363d] rounded p-4">
       <h1 class="text-3xl font-bold">Hi, I'm <span class="text-purple-500">RND</span></h1>
       <p class="text-lg">I'm a frontend engineer. I'm passionate about web development, open source and cryptocurrencies.</p>
       <p class="text-lg">I'm currently working at <a href="https://arcanum.to/" class="text-purple-500">Arcanum</a>.</p>
@@ -21,8 +21,7 @@ import Layout from "../layouts/Layout.astro";
           <li>Astro</li>
           <li>Tailwind CSS</li>
           <li>Node.js</li>
-          <li>Express</li>
-          <li>Postgres</li>
+          <li>PostgreSQL</li>
           <li>Git</li>
         </ul>
     </div>
