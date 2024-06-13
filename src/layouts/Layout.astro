@@ -3,7 +3,6 @@ import { ViewTransitions } from "astro:transitions";
 import type { Page } from "../types/pages";
 
 const currentPage = Astro.props.page;
-const baseStyles = "text-xl px-4";
 const pages: Array<Page> = [
 	{ title: "Who", url: "/", id: "who" },
 	{ title: "Arcanum", url: "/arcanum", id: "arcanum" },
@@ -59,7 +58,7 @@ const pages: Array<Page> = [
 
 							return (
 								<li class={styles}>
-									<a href={page.url}>
+									<a href={page.url} target="_self">
 										{page.title}
 									</a>
 								</li>
