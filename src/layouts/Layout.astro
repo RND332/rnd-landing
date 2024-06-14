@@ -15,19 +15,6 @@ const pages: Array<Page> = [
 <!doctype html>
 <html lang="en" class="sd:text-xs md:text-base lg:text-xl xl:text-3xl">
 	<head>
-		<script
-			is:inline
-			src="https://www.googletagmanager.com/gtag/js?id=G-VSD6GSYPH2"
-		></script>
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			gtag("js", new Date());
-
-			gtag("config", "G-VSD6GSYPH2");
-		</script>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
@@ -42,6 +29,15 @@ const pages: Array<Page> = [
 		<title>RND</title>
 		<ViewTransitions />
 	</head>
+	<!-- Google tag (gtag.js) -->
+	<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-VSD6GSYPH2"></script>
+	<script is:inline type="module">
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-VSD6GSYPH2');
+	</script>
 	<body class="w-96">
 		<main class="flex flex-col items-center min-w-full p-10">
 			<div class="w-full text-white">
