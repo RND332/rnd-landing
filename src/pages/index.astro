@@ -1,16 +1,29 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Avatar from "../../public/avatarfull.jpg"
+import Avatar from "../../public/avatarfull.jpg";
+import { getImage } from "astro:assets";
+
+const optimizedAvatar = await getImage({ src: Avatar, format: "webp" });
 ---
 
 <Layout>
   <div class="grid p-2 grid-cols-1 gap-2 grid-rows-[1fr, 2fr]">
-    <div class="avatar">
-    </div>
+    <div style={`background-image: url(${optimizedAvatar.src})`} class="avatar"></div>
     <div class="border border-[#30363d] rounded p-4">
-      <h1 class="text-base font-bold">Hi, I'm <span class="text-purple-500">RND</span></h1>
-      <p class="text-xs">I'm a frontend engineer. I'm passionate about web development, open source and cryptocurrencies.</p>
-      <p class="text-xs">I'm currently working at <a href="https://arcanum.to/" class="text-purple-500" target="_blank">Arcanum</a>.</p>
+      <h1 class="text-base font-bold">
+        Hi, I'm <span class="text-purple-500">RND</span>
+      </h1>
+      <p class="text-xs">
+        I'm a frontend engineer. I'm passionate about web development, open
+        source and cryptocurrencies.
+      </p>
+      <p class="text-xs">
+        I'm currently working at <a
+          href="https://arcanum.to/"
+          class="text-purple-500"
+          target="_blank">Arcanum</a
+        >.
+      </p>
       <div class="mt-4">
         <h2 class="text-base font-bold">Skills</h2>
         <ul class="list-disc list-inside text-xs">
@@ -24,28 +37,31 @@ import Avatar from "../../public/avatarfull.jpg"
           <li>PostgreSQL</li>
           <li>Git</li>
         </ul>
+      </div>
     </div>
   </div>
+
+  <style>
+    /* on hover very cool color transition for links */
+    a {
+      text-decoration-color: blueviolet;
+      transition: color 0.3s;
+      text-decoration: solid underline blueviolet;
+    }
+
+    a:hover {
+      color: purple;
+    }
+
+    .avatar {
+      width: 100%;
+      aspect-ratio: 1/1;
+      /* background: url("/avatarfull.jpg") no-repeat center; */
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-position-y: 35%;
+      background-size: 170%;
+      border-radius: 100%;
+    }
+  </style>
 </Layout>
-
-<style>
-  /* on hover very cool color transition for links */
-  a {
-    text-decoration-color:blueviolet;
-    transition: color 0.3s;
-    text-decoration: solid underline blueviolet;
-  }
-
-  a:hover {
-    color: purple;
-  }
-
-  .avatar {
-    width: 100%;
-    aspect-ratio: 1/1;
-    background: url("/avatarfull.jpg") no-repeat center;
-    background-position-y: 35%;
-    background-size: 170%;
-    border-radius: 100%;
-  }
-</style>
