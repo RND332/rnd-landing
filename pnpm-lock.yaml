@@ -26,9 +26,6 @@ importers:
       '@astrojs/tailwind':
         specifier: ^5.1.0
         version: 5.1.0(astro@4.9.3(@types/node@20.14.2)(lightningcss@1.25.1)(terser@5.31.1)(typescript@5.4.5))(tailwindcss@3.4.4)
-      '@playform/compress':
-        specifier: ^0.0.13
-        version: 0.0.13(@types/node@20.14.2)(typescript@5.4.5)
       '@types/react':
         specifier: ^18.3.3
         version: 18.3.3
@@ -38,6 +35,9 @@ importers:
       astro:
         specifier: ^4.9.3
         version: 4.9.3(@types/node@20.14.2)(lightningcss@1.25.1)(terser@5.31.1)(typescript@5.4.5)
+      astro-compress:
+        specifier: ^2.2.28
+        version: 2.2.28(@types/node@20.14.2)(typescript@5.4.5)
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -729,9 +729,6 @@ packages:
     resolution: {integrity: sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg==}
     engines: {node: '>=14'}
 
-  '@playform/compress@0.0.13':
-    resolution: {integrity: sha512-2tKnSr2yjMUkQZTBQxW27IWOmZnyN6RH1r0gZ/ESdSCPu6GfutgYs63/Av+qjMz1SwOFO6TjDGRiMbSUI46RHg==}
-
   '@playform/pipe@0.0.6':
     resolution: {integrity: sha512-dsW6Dyq9yNLOSw0iV7iD0P13pqmKFk2YjlGzgJOM7Qnl05Vdv0beFz0MquOma7rCE+Kg4njCPNAQUDsSss8xZw==}
 
@@ -999,6 +996,9 @@ packages:
   astring@1.8.6:
     resolution: {integrity: sha512-ISvCdHdlTDlH5IpxQJIex7BWBywFWgjJSVdwst+/iQCoEYnyOaQ95+X1JGshuBjGp6nxKUy1jMgE3zPqN7fQdg==}
     hasBin: true
+
+  astro-compress@2.2.28:
+    resolution: {integrity: sha512-6vfP34YQzuRu+3S8ufmG4924NXZ8D095ii+BLNbkroDgAxlL5C6T6L47BSWdkSXofHvNMIa8nIVAGW+AUjubiw==}
 
   astro@4.9.3:
     resolution: {integrity: sha512-LhiKZMee56GI7+zIt15bXZVX4JSnj4syTrQdkYNgE+Y0udMad0x8RgJGzc2NMOK31e6w/SL+NFSvnt/d1kgs5w==}
@@ -3408,28 +3408,6 @@ snapshots:
   '@pkgjs/parseargs@0.11.0':
     optional: true
 
-  '@playform/compress@0.0.13(@types/node@20.14.2)(typescript@5.4.5)':
-    dependencies:
-      '@playform/pipe': 0.0.6
-      '@types/csso': 5.0.4
-      '@types/html-minifier-terser': 7.0.2
-      astro: 4.9.3(@types/node@20.14.2)(lightningcss@1.25.1)(terser@5.31.1)(typescript@5.4.5)
-      csso: 5.0.5
-      html-minifier-terser: 7.2.0
-      kleur: 4.1.5
-      lightningcss: 1.25.1
-      sharp: 0.33.4
-      svgo: 3.3.2
-      terser: 5.31.1
-    transitivePeerDependencies:
-      - '@types/node'
-      - less
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - typescript
-
   '@playform/pipe@0.0.6':
     dependencies:
       '@types/node': 20.14.2
@@ -3697,6 +3675,28 @@ snapshots:
   array-iterate@2.0.1: {}
 
   astring@1.8.6: {}
+
+  astro-compress@2.2.28(@types/node@20.14.2)(typescript@5.4.5):
+    dependencies:
+      '@playform/pipe': 0.0.6
+      '@types/csso': 5.0.4
+      '@types/html-minifier-terser': 7.0.2
+      astro: 4.9.3(@types/node@20.14.2)(lightningcss@1.25.1)(terser@5.31.1)(typescript@5.4.5)
+      csso: 5.0.5
+      html-minifier-terser: 7.2.0
+      kleur: 4.1.5
+      lightningcss: 1.25.1
+      sharp: 0.33.4
+      svgo: 3.3.2
+      terser: 5.31.1
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - typescript
 
   astro@4.9.3(@types/node@20.14.2)(lightningcss@1.25.1)(terser@5.31.1)(typescript@5.4.5):
     dependencies:
