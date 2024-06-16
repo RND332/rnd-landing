@@ -75,13 +75,15 @@ const pages: Array<Page> = [
 							}
 
 							return (
-								<a
-									class="w-full active-link"
-									href={page.url}
-									target="_self"
-								>
-									<li class={styles}>{page.title}</li>
-								</a>
+								<li>
+									<a
+										class="w-full active-link"
+										href={page.url}
+										target="_self"
+									>
+										<div class={styles}>{page.title}</div>
+									</a>
+								</li>
 							);
 						})
 					}
@@ -142,7 +144,7 @@ const pages: Array<Page> = [
 				transition: color 0.3s ease;
 				color: color-mix(in srgb, white 50%, black 50%);
 			}
-			
+
 			.active-link:active {
 				transition: color 0.3s ease;
 				color: color-mix(in srgb, white 50%, black 50%);
