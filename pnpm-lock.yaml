@@ -45,6 +45,9 @@ importers:
         specifier: ^5.4.5
         version: 5.4.5
     devDependencies:
+      '@kindspells/astro-shield':
+        specifier: ^1.3.6
+        version: 1.3.6(astro@4.9.3(typescript@5.4.5))
       prettier:
         specifier: ^3.3.1
         version: 3.3.1
@@ -680,6 +683,12 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@kindspells/astro-shield@1.3.6':
+    resolution: {integrity: sha512-h8RVLrCVRqCuJgjweN2VeMRypY/5G1ZDrs1UKnZqzT2KH1Chh+mASs3dATuYO6SYrqTpEtYFtZcTZFRb+CA+tg==}
+    engines: {node: '>= 18.0.0'}
+    peerDependencies:
+      astro: ^4.0.0
 
   '@mdx-js/mdx@3.0.1':
     resolution: {integrity: sha512-eIQ4QTrOWyL3LWEe/bu6Taqzq2HQvHcyTMaOrI95P2/LmJE7AsfPfgJGuFLPVqBUE1BC1rik3VIhU+s9u72arA==}
@@ -3121,6 +3130,10 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  '@kindspells/astro-shield@1.3.6(astro@4.9.3(typescript@5.4.5))':
+    dependencies:
+      astro: 4.9.3(typescript@5.4.5)
 
   '@mdx-js/mdx@3.0.1':
     dependencies:
