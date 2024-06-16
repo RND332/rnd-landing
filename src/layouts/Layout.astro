@@ -29,16 +29,25 @@ const pages: Array<Page> = [
 		<meta name="generator" content={Astro.generator} />
 		<title>RND</title>
 		<ViewTransitions />
-	</head>
-	<!-- Google tag (gtag.js) -->
-	<script is:inline type="text/partytown" async src="https://www.googletagmanager.com/gtag/js?id=G-VSD6GSYPH2" crossorigin="anonymous" integrity="sha256-qYiLo0cdNGfiDZoKmLxVFIfrl5RsVuOVzzAivA2hHLo="></script>
-	<script is:inline type="text/partytown">
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+		<script
+			is:inline
+			strategy="lazyOnload"
+			type="text/partytown"
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-VSD6GSYPH2"
+		></script>
+		<script is:inline strategy="lazyOnload" type="text/partytown" async>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
 
-		gtag('config', 'G-VSD6GSYPH2');
-	</script>
+			gtag("config", "G-VSD6GSYPH2");
+		</script></head
+	>
+	<!-- Google tag (gtag.js) -->
+
 	<body class="w-96">
 		<main class="flex flex-col items-center min-w-full p-10">
 			<div class="w-full text-white">

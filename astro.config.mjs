@@ -3,9 +3,8 @@ import tailwind from "@astrojs/tailwind";
 import mdx from '@astrojs/mdx';
 import { shield } from '@kindspells/astro-shield';
 import sitemap from "@astrojs/sitemap";
-import playformCompress from "@playform/compress";
-
 import partytown from "@astrojs/partytown";
+import playformCompress from "@playform/compress";
 
 // https://astro.build/config
 export default defineConfig({
