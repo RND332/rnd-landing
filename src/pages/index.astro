@@ -1,12 +1,12 @@
 ---
 import { Image } from 'astro:assets';
-import Avatar from '../../public/avatar.jpg';
 import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
   <div class="grid p-2 grid-cols-1 gap-2 grid-rows-[1fr, 2fr]">
-    <Image src={Avatar} loading="eager" alt="avatar" class="rounded-full w-full" />
+    <div class="avatar">
+    </div>
     <div class="border border-[#30363d] rounded p-4">
       <h1 class="text-base font-bold">Hi, I'm <span class="text-purple-500">RND</span></h1>
       <p class="text-xs">I'm a frontend engineer. I'm passionate about web development, open source and cryptocurrencies.</p>
@@ -38,5 +38,13 @@ import Layout from "../layouts/Layout.astro";
 
   a:hover {
     color: purple;
+  }
+
+  .avatar {
+    width: 100%;
+    aspect-ratio: 1/1;
+    background: url("../../public/avatarfull.jpg") no-repeat center -190px;
+    zoom: 160%;
+    border-radius: 100%;
   }
 </style>
