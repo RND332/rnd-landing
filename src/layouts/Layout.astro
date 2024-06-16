@@ -30,10 +30,11 @@ const pages: Array<Page> = [
 		<title>RND</title>
 		<ViewTransitions />
 		<script
+			is:inline
 			type="text/partytown"
 			src="https://www.googletagmanager.com/gtag/js?id=G-VSD6GSYPH2"
 		></script>
-		<script type="text/partytown">
+		<script is:inline type="text/partytown">
 			window.dataLayer = window.dataLayer || [];
 			function gtag() {
 				dataLayer.push(arguments);
@@ -62,7 +63,7 @@ const pages: Array<Page> = [
 								currentPage == undefined ? "who" : currentPage;
 							const isCurrentPage = currentPageId === page.id;
 
-							let styles = "px-2 ";
+							let styles = "w-full px-2 ";
 							if (index % 3 === 0) {
 								styles += "border-r border-[#30363d] ";
 							} else if (index % 3 === 1) {
@@ -74,11 +75,13 @@ const pages: Array<Page> = [
 							}
 
 							return (
-								<li class={styles}>
-									<a href={page.url} target="_self">
-										{page.title}
-									</a>
-								</li>
+								<a
+									class="w-full active-link"
+									href={page.url}
+									target="_self"
+								>
+									<li class={styles}>{page.title}</li>
+								</a>
 							);
 						})
 					}
@@ -133,6 +136,16 @@ const pages: Array<Page> = [
 					Bitstream Vera Sans Mono,
 					Courier New,
 					monospace;
+			}
+
+			.active-link:hover {
+				transition: color 0.3s ease;
+				color: color-mix(in srgb, white 50%, black 50%);
+			}
+			
+			.active-link:active {
+				transition: color 0.3s ease;
+				color: color-mix(in srgb, white 50%, black 50%);
 			}
 		</style>
 	</body>
