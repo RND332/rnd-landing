@@ -35,7 +35,7 @@ const pages: Array<Page> = [
 			src="https://www.googletagmanager.com/gtag/js?id=G-VSD6GSYPH2"
 		></script>
 	</head>
-	
+
 	<body class="w-96">
 		<main class="flex flex-col items-center min-w-full p-10">
 			<div class="w-full text-white">
@@ -53,7 +53,7 @@ const pages: Array<Page> = [
 								currentPage == undefined ? "who" : currentPage;
 							const isCurrentPage = currentPageId === page.id;
 
-							let styles = "w-full px-2 min-w-[48px] ";
+							let styles = "w-full ";
 							if (index % 3 === 0) {
 								styles += "border-r border-[#30363d] ";
 							} else if (index % 3 === 1) {
@@ -65,13 +65,13 @@ const pages: Array<Page> = [
 							}
 
 							return (
-								<li>
+								<li class={styles + "w-full active-link"}>
 									<a
-										class="w-full active-link"
+										class="flex w-full h-[48px] justify-center items-center"
 										href={page.url}
 										target="_self"
 									>
-										<div class={styles}>{page.title}</div>
+										<div class="w-min">{page.title}</div>
 									</a>
 								</li>
 							);
