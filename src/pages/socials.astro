@@ -1,18 +1,45 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
-import Twittercircle from "../../public/twittercircle.png";
+import Avatar from "../../public/avatar.jpg";
+
+const icons: Array<number> = Array.from({ length: 102 })
+	.fill(Array.from(Array(7).keys()))
+	.flat() as Array<number>;
 ---
 
 <Layout page="socials">
     <div class="p-2 w-full grid grid-cols-1 gap-2 grid-rows-[1fr, 2fr]">
-        <Image
-            src={Twittercircle}
-            loading="eager"
-            class="rounded-full w-full"
-            alt="Avatar"
-        />
+        <div class="relative p-0.5 bg-gradient-to-br from-[#E5ECFE] from-1% via-50% via-[#4B307D] to-[#A62858] rounded-full animate-gradient bg-[length:400%_400%]">
+            <div class="w-full aspect-square rounded-full relative z-0 flex flex-wrap justify-between overflow-hidden bg-[#0d0f14]">
+                {
+                    icons.map((i) => {
+                        const img: {[key: number]: string} = {
+                            0: "/github.svg",
+                            1: "/icons/postgres.svg",
+                            2: "/icons/react.svg",
+                            3: "/icons/tailwind.svg",
+                            4: "/icons/ts.svg",
+                            5: "/icons/avatar.jpg",
+                            6: "/icons/js.svg"
+                        } as const;
 
+                        return (
+                        <img 
+                            src={img[i]}
+                            class="rounded-full z-0 size-fit transition-all animate-socials p-0.5 w-4"
+                        />)
+                    })
+                }
+            </div>
+            <Image
+                src={Avatar}
+                loading="eager"
+                class="rounded-full w-1/2 left-1/4 top-1/4 absolute z-1"
+                alt="Avatar"
+            />
+        </div>
+        
         <div class="border border-[#30363d] rounded p-2">
             <h1 class="font-bold">Socials</h1>
 
@@ -60,6 +87,14 @@ import Twittercircle from "../../public/twittercircle.png";
                     >
                         LinkedIn
                     </a>
+                </div>
+                <div
+                    draggable="true"
+                    class="w-fit plane border border-[#30363d] bg-[#30363d] rounded px-2 text-xs"
+                >
+                    <span>
+                        Test
+                    </span>
                 </div>
             </div>
         </div>
